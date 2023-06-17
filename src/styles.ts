@@ -8,7 +8,7 @@ export const Container = styled('div')`
   padding: 0;
   overflow: hidden;
   font-family: ui-monospace, monospace;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 21px;
   --webkit-user-select: none;
   user-select: none;
@@ -36,7 +36,9 @@ export const Title = styled('span')`
 
 export const Content = styled(animated.div)`
   will-change: transform, opacity, height;
-  margin-left: 6px;
+  margin-left: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 0px 0px 0px 14px;
   border-left: 1px dashed rgba(255, 255, 255, 0.4);
   overflow: hidden;
