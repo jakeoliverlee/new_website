@@ -7,7 +7,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   padding: 10px 20px;
   background-color: transparent;
-  color: #24292e;
+  color: ${(props) => props.theme.text};
   width: 100%;
   font-family: ui-monospace, monospace;
   font-size: 14px;

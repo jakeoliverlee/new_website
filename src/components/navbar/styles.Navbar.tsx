@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
+
 export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: transparent;
-  color: #24292e;
+  color: ${(props) => props.theme.text};
   width: 100%;
   font-family: ui-monospace, monospace;
   font-size: 14px;
@@ -41,7 +42,7 @@ export const NavbarTitle = styled.h1`
 `;
 
 export const NavbarButton = styled.a`
-  color: #24292e;
+  color: ${(props) => props.theme.text};
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 3px;
