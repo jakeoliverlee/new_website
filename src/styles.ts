@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import { animated } from '@react-spring/web'
 
+export const theme = {
+  body: "#18181b",
+  text: "#fff",
+}
+
+
 export const Container = styled('div')`
   width: 100%;
   height: 100%;
@@ -25,18 +31,18 @@ export const Frame = styled('div')`
   white-space: nowrap;
   overflow-x: hidden;
   vertical-align: middle;
-  color: #24292e;
-  fill: #24292e;
+  color: ${(props) => props.theme.text};
+  fill: ${(props) => props.theme.text};
 `
 
 export const Title = styled('span')`
   vertical-align: middle;
-  color: ${props => props.color || "#24292e"}; // if no color prop is provided, it will fall back to #24292e
+  color: ${(props) => props.theme.text}; // if no color prop is provided, it will fall back to #24292e
 `
 
 export const Content = styled(animated.div)`
   will-change: transform, opacity, height;
-  margin-left: 12px;
+  margin-left: 14px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0px 0px 0px 14px;

@@ -1,13 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, a } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
-import { Container, Title, Frame, Content, toggle } from './styles'
+import { Container, Title, Frame, Content, toggle, theme } from './styles'
 import * as Icons from './icons'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
-import styled from 'styled-components'
-
-
+import styled, { ThemeProvider } from 'styled-components';
 
 
 function usePrevious<T>(value: T) {
@@ -56,11 +54,15 @@ const AppContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
+
 
 export default function App() {
   return (
     <>
+  <ThemeProvider theme={theme}>
     <AppContainer>
       <Navbar /> 
       <Container>
@@ -68,9 +70,15 @@ export default function App() {
           <Tree name="about">
             <div>Hey this is a sample about me</div>
           </Tree>
-          <Tree name="subtree with children">
-            <Tree name="hello" className="text-red-500" />
-            <Tree name="sub-subtree with children">
+          <Tree name="projects">
+          <Tree name="github graphs 📈" className="text-red-500">
+          <Tree name="child 1" style={{ color: '#37ceff' }} />
+          <Tree name="child 2" style={{ color: '#37ceff' }} />
+          <Tree name="child 3" style={{ color: '#37ceff' }} />
+          <Tree name="child 4" style={{ color: '#37ceff' }} />
+          <Tree name="child 5" style={{ color: '#37ceff' }} />
+          </Tree>
+            <Tree name="streamline 🦈">
               <Tree name="child 1" style={{ color: '#37ceff' }} />
               <Tree name="child 2" style={{ color: '#37ceff' }} />
               <Tree name="child 3" style={{ color: '#37ceff' }} />
@@ -96,7 +104,9 @@ export default function App() {
                 </div>
               </Tree>
             </Tree>
-            <Tree name="hello" />
+            <Tree name="pass save 🔐">
+              <Tree name="hello" />
+            </Tree>
           </Tree>
           <Tree name="contact" />
           <Tree name={<span>🐬 something something</span>} />
@@ -104,7 +114,8 @@ export default function App() {
       </Container>
       <Footer />
     </AppContainer>
-    </>
+  </ThemeProvider>
+</>
   )
 }
 
