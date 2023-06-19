@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 import { animated } from '@react-spring/web'
 
-export const theme = {
+export const darkTheme = {
   body: "#18181b",
   text: "#fff",
+}
+
+export const lightTheme = {
+  body: "#fff",
+  text: "#000"
 }
 
 

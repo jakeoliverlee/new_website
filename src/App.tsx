@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, a } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
-import { Container, Title, Frame, Content, toggle, theme } from './styles'
+import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme } from './styles'
 import * as Icons from './icons'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
@@ -13,7 +13,8 @@ function usePrevious<T>(value: T) {
   useEffect(() => void (ref.current = value), [value])
   return ref.current
 }
-// test
+
+
 const Tree = React.memo<
   React.HTMLAttributes<HTMLDivElement> & {
     defaultOpen?: boolean
@@ -60,6 +61,17 @@ const AppContainer = styled.div`
 
 
 export default function App() {
+
+const [theme, setTheme] = useState(lightTheme);
+
+useEffect(() => {
+  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  if (userPrefersDark) setTheme(darkTheme);
+  if (userPrefersLight) setTheme(lightTheme);
+}, []);
+
   return (
     <>
   <ThemeProvider theme={theme}>
