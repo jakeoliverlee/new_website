@@ -66,11 +66,26 @@ const AppContainer = styled.div`
 export default function App() {
   const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useState(userPrefersDark ? darkTheme : lightTheme);
+  
 
   const toggleTheme = () => {
     setTheme(theme === darkTheme ? lightTheme : darkTheme);
+    setFavicon(theme);
   };
 
+    const setFavicon = (theme: object) => {
+    const favicon = document.getElementById("favicon");
+    if (favicon) {
+      if (theme === darkTheme) {
+        favicon.setAttribute("href", "assets/favicon-dark.ico");
+      } else {
+        favicon.setAttribute("href", "assets/favicon-light.ico");
+      }
+    }
+  }
+  
+  setFavicon(theme);
+  
   const variants: Variants = {
     open: (i: number) => ({
       opacity: 1,
