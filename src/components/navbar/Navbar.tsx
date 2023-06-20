@@ -2,11 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { NavbarContainer, NavbarItem, NavbarTitle, NavbarItemsContainer, NavbarButton } from './styles.Navbar';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Confetti from 'react-confetti';
+import useMediaQuery from './checkdesktopHook';
+import { darkTheme, lightTheme } from '../../styles';
+import Switch from './switch/Switch';
+import MoonIcon from './switch/icons/MoonIcon';
+import SunIcon from './switch/icons/SunIcon';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  toggleTheme: () => void;
+  theme: typeof darkTheme | typeof lightTheme;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleTheme, theme }) => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const [windowDimensions, setWindowDimensions] = useState({ width: window.innerWidth, height: window.innerHeight }); // ensures confetti covers entire page
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isPhone = useMediaQuery("(max-width: 400px)")
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
@@ -42,13 +54,22 @@ const Navbar: React.FC = () => {
     <NavbarContainer>
       <NavbarTitle>jakeoliverlee</NavbarTitle>
       <NavbarItemsContainer>
-        <NavbarButton href="/resume.pdf" download onClick={() => {setShowConfetti(true); setOpacity(1)}}>
-          Download Resume
-        </NavbarButton>
+      {isDesktop && (
+          <>
+            <SunIcon />
+            <Switch onToggle={toggleTheme} />
+            <MoonIcon />
+          </>
+        )}
+        {!isPhone && (
+          <NavbarButton href="/resume.pdf" download onClick={() => {setShowConfetti(true); setOpacity(1)}}>
+            Download Resume
+          </NavbarButton>
+        )}
         <NavbarItem href="https://github.com/jakeoliverlee" target="__blank">
           <FaGithub size={24} />
         </NavbarItem>
-        <NavbarItem href="https://linkedin.com">
+        <NavbarItem href="https://www.linkedin.com/in/jake-lee-4aa088129/" target="__blank">
           <FaLinkedin size={24} />
         </NavbarItem>
       </NavbarItemsContainer>

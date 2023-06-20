@@ -1,11 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, a } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
-import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme } from './styles'
+import {
+   Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText
+  } from './styles'
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import styled, { ThemeProvider } from 'styled-components';
+
 
 
 function usePrevious<T>(value: T) {
@@ -59,28 +63,30 @@ const AppContainer = styled.div`
   color: ${(props) => props.theme.text};
 `;
 
-
 export default function App() {
+  const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useState(userPrefersDark ? darkTheme : lightTheme);
 
-const [theme, setTheme] = useState(lightTheme);
+  const toggleTheme = () => {
+    setTheme(theme === darkTheme ? lightTheme : darkTheme);
+  };
 
-useEffect(() => {
-  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const variants: Variants = {
+    open: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 2.0,  
+        y: { stiffness: 1000, velocity: -100 },
+      }
+    }),
+    closed: { opacity: 0, y: -50 },
+  };
 
-  if (userPrefersDark) setTheme(darkTheme);
-  if (userPrefersLight) setTheme(lightTheme);
-}, []);
-
-  return (
-    <>
-  <ThemeProvider theme={theme}>
-    <AppContainer>
-      <Navbar /> 
-      <Container>
-        <Tree name="main" defaultOpen>
+  const treeElements = [
+    <Tree name="main" defaultOpen>
           <Tree name="about">
-            <div>Hey this is a sample about me</div>
+            <div>A backend <BoldText>engineer</BoldText></div>
           </Tree>
           <Tree name="projects">
           <Tree name="github graphs 📈" className="text-red-500">
@@ -122,12 +128,31 @@ useEffect(() => {
           </Tree>
           <Tree name="contact" />
           <Tree name={<span>🐬 something something</span>} />
-        </Tree>
-      </Container>
+          </Tree>
+  ];
+
+  return (
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <Container>
+        <AnimatePresence>
+            {treeElements.map((treeElement, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={variants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+              >
+                {treeElement}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </Container>
       <Footer />
     </AppContainer>
   </ThemeProvider>
-</>
   )
 }
-

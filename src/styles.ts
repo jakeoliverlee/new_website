@@ -29,6 +29,10 @@ export const Container = styled('div')`
   justify-content: center;
 `
 
+export const BoldText = styled('span')`
+  font-weight: bold;
+`
+
 export const Frame = styled('div')`
   position: relative;
   padding: 4px 0px 0px 0px;
