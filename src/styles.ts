@@ -66,3 +66,21 @@ export const toggle = {
   cursor: 'pointer',
   verticalAlign: 'middle',
 }
+
+export const TechStack = styled('div')`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1.25rem;
+    display: inline-block;
+    &:last-child {
+      margin-right: 0.5rem;
+    }
+  }
+`;

@@ -2,7 +2,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, a } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import {
-   Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText
+   Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText,
+   TechStack
   } from './styles'
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons'
@@ -85,7 +86,7 @@ export default function App() {
   }
   
   setFavicon(theme);
-  
+
   const variants: Variants = {
     open: (i: number) => ({
       opacity: 1,
@@ -105,37 +106,16 @@ export default function App() {
           </Tree>
           <Tree name="projects">
           <Tree name="github graphs 📈" className="text-red-500">
-          <Tree name="child 1" style={{ color: '#37ceff' }} />
-          <Tree name="child 2" style={{ color: '#37ceff' }} />
-          <Tree name="child 3" style={{ color: '#37ceff' }} />
-          <Tree name="child 4" style={{ color: '#37ceff' }} />
-          <Tree name="child 5" style={{ color: '#37ceff' }} />
+          <TechStack>
+              <img src="assets/svgs/flask-svgrepo-com.svg" alt="Flask" />
+              <img src="assets/svgs/node-js-svgrepo-com.svg" alt="nodejs" />
+          </TechStack>
           </Tree>
-            <Tree name="streamline 🦈">
-              <Tree name="child 1" style={{ color: '#37ceff' }} />
-              <Tree name="child 2" style={{ color: '#37ceff' }} />
-              <Tree name="child 3" style={{ color: '#37ceff' }} />
-              <Tree name="child 4" style={{ color: '#37ceff' }} />
-              <Tree name="child 5" style={{ color: '#37ceff' }} />
-              <Tree name="custom content">
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: 200,
-                    padding: 10,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      background: 'black',
-                      borderRadius: 5,
-                    }}
-                  />
-                </div>
-              </Tree>
+          <Tree name="streamline 🦈">
+          <TechStack>
+              <img src="assets/svgs/express-svgrepo-com.svg" alt="express" />
+              <img src="assets/svgs/node-js-svgrepo-com.svg" alt="nodejs" />
+          </TechStack>
             </Tree>
             <Tree name="pass save 🔐">
               <Tree name="hello" />
@@ -143,7 +123,7 @@ export default function App() {
           </Tree>
           <Tree name="contact" />
           <Tree name={<span>🐬 something something</span>} />
-          </Tree>
+        </Tree>
   ];
 
   return (
