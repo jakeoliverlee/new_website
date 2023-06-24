@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { animated } from '@react-spring/web'
+import styled from 'styled-components';
+import { animated } from '@react-spring/web';
 
 export const darkTheme = {
   body: "#18181b",
@@ -11,8 +11,7 @@ export const lightTheme = {
   text: "#000"
 }
 
-
-export const Container = styled('div')`
+export const Container = styled.div`
   width: 100%;
   height: 100%;
   margin: 0;
@@ -21,43 +20,46 @@ export const Container = styled('div')`
   font-family: ui-monospace, monospace;
   font-size: 20px;
   line-height: 21px;
-  --webkit-user-select: none;
   user-select: none;
   display: flex;
   align-items: center;
-  height: 100%;
   justify-content: center;
-`
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
+`;
 
-export const BoldText = styled('span')`
+export const BoldText = styled.span`
   font-weight: bold;
-`
+`;
 
-export const Frame = styled('div')`
+export const Frame = styled.div`
   position: relative;
-  padding: 4px 0px 0px 0px;
+  padding: 4px 0 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow-x: hidden;
   vertical-align: middle;
   color: ${(props) => props.theme.text};
   fill: ${(props) => props.theme.text};
-`
+`;
 
-export const Title = styled('span')`
+export const Title = styled.span`
   vertical-align: middle;
-  color: ${(props) => props.theme.text}; // if no color prop is provided, it will fall back to #24292e
-`
+  color: ${(props) => props.theme.text};
+`;
 
 export const Content = styled(animated.div)`
   will-change: transform, opacity, height;
   margin-left: 14px;
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 0px 0px 0px 14px;
+  padding: 0 0 0 14px;
   border-left: 1px dashed rgba(255, 255, 255, 0.4);
   overflow: hidden;
-`
+`;
 
 export const toggle = {
   width: '1em',
@@ -67,20 +69,94 @@ export const toggle = {
   verticalAlign: 'middle',
 }
 
-export const TechStack = styled('div')`
+export const TechStack = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   min-height: 3rem;
 
   img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     margin-right: 1.25rem;
     display: inline-block;
+
     &:last-child {
       margin-right: 0.5rem;
     }
+  }
+`;
+
+export const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid ${(props) => props.theme.text};
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+
+  .description {
+    font-size: 1.1rem;
+    color: ${(props) => props.theme.text};
+    margin-bottom: 1rem;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    a {
+      color: ${(props) => props.theme.text};
+      text-decoration: none;
+    }
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid ${(props) => props.theme.text};
+    opacity: 0.2;
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileProjectCard = styled(ProjectCard)`
+  padding: 0.5rem;
+
+  .description {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: flex-start;
+
+    a {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  hr {
+    margin: 0.5rem 0;
+  }
+
+  ${TechStack} {
+    img {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 `;
