@@ -18,7 +18,7 @@ export const Container = styled.div`
   padding: 0;
   overflow: hidden;
   font-family: ui-monospace, monospace;
-  font-size: 20px;
+  font-size: 23px;
   line-height: 21px;
   user-select: none;
   display: flex;
@@ -39,7 +39,6 @@ export const Frame = styled.div`
   position: relative;
   padding: 4px 0 0;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow-x: hidden;
   vertical-align: middle;
   color: ${(props) => props.theme.text};
@@ -54,6 +53,7 @@ export const Title = styled.span`
 export const Content = styled(animated.div)`
   will-change: transform, opacity, height;
   margin-left: 14px;
+  margin: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0 0 0 14px;
@@ -88,10 +88,11 @@ export const TechStack = styled.div`
   }
 `;
 
+
 export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
@@ -101,6 +102,9 @@ export const ProjectCard = styled.div`
     color: ${(props) => props.theme.text};
     max-width: 100%;
     margin-bottom: 1rem;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .links {
@@ -111,7 +115,7 @@ export const ProjectCard = styled.div`
     a {
       color: ${(props) => props.theme.text};
       text-decoration: none;
-      margin-right: 1rem
+      margin-right: 1rem;
     }
   }
 
@@ -122,47 +126,23 @@ export const ProjectCard = styled.div`
     margin: 1rem 0;
   }
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
+  @media (max-width: 600px) {
+    width: 100%; // make it full width on smaller screens
+    padding: 0.5rem; // reduce padding on smaller screens
 
-export const ProjectCardMiniStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    .description {
+      font-size: 1rem; // reduce font size on smaller screens
+    }
 
-  .description {
-    font-size: 0.8rem;
-    color: ${(props) => props.theme.text};
-    margin-bottom: 0.5rem;
-  }
+    .links {
+      flex-wrap: wrap;
 
-  .links {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-
-    a {
-      color: ${(props) => props.theme.text};
-      text-decoration: none;
+      a {
+        margin-right: 0.5rem; // reduce margin on smaller screens
+      }
     }
   }
-
-  hr {
-    border: 0;
-    border-top: 1px solid ${(props) => props.theme.text};
-    opacity: 0.2;
-    margin: 0.5rem 0;
-  }
-
-  // Hide this component on larger screens
-  @media (min-width: 769px) {
-    display: none;
-  }
 `;
+
 
 

@@ -1,13 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSpring, a } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText, TechStack } from './styles';
+import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText } from './styles';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import ProjectCard from './components/ProjectCard';
-import ProjectCardMini from './components/ProjectCardMini';
 import styled, { ThemeProvider } from 'styled-components';
 
 function usePrevious<T>(value: T) {
@@ -88,32 +87,34 @@ export default function App() {
   const treeElements = [
     <Tree name="main" defaultOpen>
       <Tree name="about">
-        <div>A backend <BoldText>engineer</BoldText></div>
+        <div>
+          A backend <BoldText>engineer</BoldText>
+        </div>
       </Tree>
       <Tree name="projects">
-      <Tree name="github graphs 📈">
-      <ProjectCard
-        title="Github Graphs"
-        description="This is a description of my project.  "
-        techStack={[
-          { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
-          { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
-        ]}
-        liveLink="https://your-project-website.com"
-        sourceLink="https://github.com/your-username/your-repo"
-      />
-      <ProjectCardMini
-      title="My Project"
-      description="This is my project"
-      liveLink="#"
-      sourceLink="#"
-    />
-    </Tree>
+        <Tree name="github graphs 📈">
+          <ProjectCard
+            title="Github Graphs"
+            description="A REST API for generating custom designed graphs based on GitHub commit history."
+            techStack={[
+              { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
+              { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
+            ]}
+            liveLink="#"
+            sourceLink="#"
+          />
+        </Tree>
         <Tree name="streamline 🦈">
-          <TechStack>
-            <img src="assets/svgs/express-svgrepo-com.svg" alt="express" />
-            <img src="assets/svgs/node-js-svgrepo-com.svg" alt="nodejs" />
-          </TechStack>
+          <ProjectCard
+            title="Streamline"
+            description="Amazon-internal web application for performing ticket-data analysis for Data Centre Technicians."
+            techStack={[
+              { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
+              { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
+            ]}
+            liveLink="#"
+            sourceLink="#"
+          />
         </Tree>
         <Tree name="pass save 🔐">
           <Tree name="hello" />
@@ -121,8 +122,9 @@ export default function App() {
       </Tree>
       <Tree name="contact" />
       <Tree name={<span>🐬 something something</span>} />
-    </Tree>
+    </Tree>,
   ];
+  
 
   return (
     <ThemeProvider theme={theme}>
