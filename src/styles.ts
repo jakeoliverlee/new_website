@@ -92,8 +92,6 @@ export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid ${(props) => props.theme.text};
-  border-radius: 6px;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
@@ -101,17 +99,19 @@ export const ProjectCard = styled.div`
   .description {
     font-size: 1.1rem;
     color: ${(props) => props.theme.text};
+    max-width: 100%;
     margin-bottom: 1rem;
   }
 
   .links {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     margin-bottom: 1rem;
 
     a {
       color: ${(props) => props.theme.text};
       text-decoration: none;
+      margin-right: 1rem
     }
   }
 
@@ -127,36 +127,42 @@ export const ProjectCard = styled.div`
   }
 `;
 
-export const MobileProjectCard = styled(ProjectCard)`
+export const ProjectCardMiniStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 
   .description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    color: ${(props) => props.theme.text};
     margin-bottom: 0.5rem;
   }
 
   .links {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
 
     a {
-      margin-bottom: 0.5rem;
+      color: ${(props) => props.theme.text};
+      text-decoration: none;
     }
   }
 
   hr {
+    border: 0;
+    border-top: 1px solid ${(props) => props.theme.text};
+    opacity: 0.2;
     margin: 0.5rem 0;
   }
 
-  ${TechStack} {
-    img {
-      width: 1.25rem;
-      height: 1.25rem;
-      margin-right: 1rem;
-    }
-  }
-
-  @media (min-width: 768px) {
+  // Hide this component on larger screens
+  @media (min-width: 769px) {
     display: none;
   }
 `;
+
+

@@ -1,11 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSpring, a } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText, TechStack, ProjectCard } from './styles';
+import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText, TechStack } from './styles';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
+import ProjectCard from './components/ProjectCard';
+import ProjectCardMini from './components/ProjectCardMini';
 import styled, { ThemeProvider } from 'styled-components';
 
 function usePrevious<T>(value: T) {
@@ -89,23 +91,24 @@ export default function App() {
         <div>A backend <BoldText>engineer</BoldText></div>
       </Tree>
       <Tree name="projects">
-        <Tree name="github graphs 📈">
-          <ProjectCard>
-            <div className="description">
-              This is a description of my project.
-            </div>
-            <hr />
-            <div className="links">
-              <a href="https://your-project-website.com">Live</a>
-              <a href="https://github.com/your-username/your-repo">Source</a>
-            </div>
-            <hr />
-            <TechStack>
-              <img src="assets/svgs/flask-svgrepo-com.svg" alt="Flask" />
-              <img src="assets/svgs/node-js-svgrepo-com.svg" alt="nodejs" />
-            </TechStack>
-          </ProjectCard>
-        </Tree>
+      <Tree name="github graphs 📈">
+      <ProjectCard
+        title="Github Graphs"
+        description="This is a description of my project.  "
+        techStack={[
+          { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
+          { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
+        ]}
+        liveLink="https://your-project-website.com"
+        sourceLink="https://github.com/your-username/your-repo"
+      />
+      <ProjectCardMini
+      title="My Project"
+      description="This is my project"
+      liveLink="#"
+      sourceLink="#"
+    />
+    </Tree>
         <Tree name="streamline 🦈">
           <TechStack>
             <img src="assets/svgs/express-svgrepo-com.svg" alt="express" />
