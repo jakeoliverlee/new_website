@@ -6,7 +6,7 @@ interface ProjectProps {
   title: string;
   description: string;
   techStack: { name: string, logo: string }[];
-  liveLink: string;
+  liveLink?: string;
   sourceLink: string;
 }
 
@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, techStack, li
         {description}
       </div>
       <div className="links">
-        <Button variant="outlined" href={liveLink}>Live</Button>
+        {liveLink && <Button variant="outlined" href={liveLink}>Live</Button>}
         <Button variant="outlined" href={sourceLink}>Source</Button>
       </div>
       <hr />
@@ -30,7 +30,5 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, techStack, li
     </StyledProjectCard>
   );
 }
-
-
 
 export default ProjectCard;

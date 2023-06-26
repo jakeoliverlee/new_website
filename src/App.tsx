@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSpring, a } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText } from './styles';
+import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText, ContactCard } from './styles';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons';
 import Navbar from './components/navbar/Navbar';
@@ -91,14 +91,17 @@ export default function App() {
           A backend <BoldText>engineer</BoldText>
         </div>
       </Tree>
-      <Tree name="projects">
+      <Tree name="projects 📝">
         <Tree name="github graphs 📈">
           <ProjectCard
             title="Github Graphs"
-            description="A REST API for generating custom designed graphs based on GitHub commit history."
+            description="A REST API for generating custom designed graphs based on GitHub commit history. Built using Flask
+            and hosted on GCP."
             techStack={[
+              { name: "Python", logo: "assets/svgs/icons8-python.svg" },
               { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
-              { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
+              { name: "GCP", logo: "assets/svgs/gcp.svg" },
+              { name: "Github Actions", logo: "assets/svgs/github-actions.svg" },
             ]}
             liveLink="#"
             sourceLink="#"
@@ -107,20 +110,56 @@ export default function App() {
         <Tree name="streamline 🦈">
           <ProjectCard
             title="Streamline"
-            description="Amazon-internal web application for performing ticket-data analysis for Data Centre Technicians."
+            description="Amazon-internal web application for optimizing ticket-data analysis for Data Centre Technicians.
+             Entirely written in Python, with the exception of the IaC component being written in Typescript"
             techStack={[
-              { name: "Flask", logo: "assets/svgs/flask-svgrepo-com.svg" },
-              { name: "Node.js", logo: "assets/svgs/node-js-svgrepo-com.svg" },
+              { name: "Python", logo: "assets/svgs/icons8-python.svg" },
+              { name: "Typescript", logo: "assets/svgs/typescript-svgrepo-com.svg" },
+              { name: "Streamlit", logo: "assets/svgs/streamlit.svg" },
+              { name: "AWS", logo: "assets/svgs/aws-icon-services.svg" },
+              { name: "AWS CDK", logo: "assets/svgs/Cloud Development Kit.svg" },
             ]}
             liveLink="#"
             sourceLink="#"
           />
         </Tree>
+        <Tree name="personal site 💼">
+        <ProjectCard
+            title="Personal Site"
+            description="The page you are viewing right now!"
+            techStack={[
+              { name: "Typescript", logo: "assets/svgs/typescript-svgrepo-com.svg" },
+              { name: "React", logo: "assets/svgs/react-javascript-js-framework-facebook-svgrepo-com.svg" },
+              { name: "Styled Components", logo: "assets/styled-components.png" },
+              { name: "AWS", logo: "assets/svgs/aws-icon-services.svg" },
+              { name: "Github Actions", logo: "assets/svgs/github-actions.svg" },
+            ]}
+            sourceLink="#"
+          />
+        </Tree>
         <Tree name="pass save 🔐">
-          <Tree name="hello" />
+        <ProjectCard
+            title="PassSave"
+            description="A desktop GUI password manager application built using tkinter."
+            techStack={[
+              { name: "Python", logo: "assets/svgs/icons8-python.svg" },
+            ]}
+            sourceLink="#"
+          />
         </Tree>
       </Tree>
-      <Tree name="contact" />
+      <Tree name="contact">
+      <ContactCard>
+        <div className="details">
+          Feel free to reach out to me at any time.
+        </div>
+        <div className="links">
+          <a href="mailto:jakeoliverlee@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/jake-lee-4aa088129/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/jakeoliverlee" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </ContactCard>
+      </Tree>
       <Tree name={<span>🐬 something something</span>} />
     </Tree>,
   ];

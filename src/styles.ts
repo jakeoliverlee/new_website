@@ -15,6 +15,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   margin: 0;
+  margin-left: 1rem;
   padding: 0;
   overflow: hidden;
   font-family: ui-monospace, monospace;
@@ -37,7 +38,7 @@ export const BoldText = styled.span`
 
 export const Frame = styled.div`
   position: relative;
-  padding: 4px 0 0;
+  padding: 2px 0 0;
   text-overflow: ellipsis;
   overflow-x: hidden;
   vertical-align: middle;
@@ -92,7 +93,7 @@ export const TechStack = styled.div`
 export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 50%;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
@@ -100,9 +101,7 @@ export const ProjectCard = styled.div`
   .description {
     font-size: 1.1rem;
     color: ${(props) => props.theme.text};
-    max-width: 100%;
     margin-bottom: 1rem;
-
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -129,6 +128,7 @@ export const ProjectCard = styled.div`
   @media (max-width: 600px) {
     width: 100%; // make it full width on smaller screens
     padding: 0.5rem; // reduce padding on smaller screens
+    margin: 1rem;
 
     .description {
       font-size: 1rem; // reduce font size on smaller screens
@@ -144,5 +144,53 @@ export const ProjectCard = styled.div`
   }
 `;
 
+export const ContactCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 
+  .details {
+    font-size: 1.1rem;
+    color: ${(props) => props.theme.text};
+    max-width: 100%;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
+  .links {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 1rem;
+
+    a {
+      color: ${(props) => props.theme.text};
+      text-decoration: underline;
+      margin-right: 1rem;
+    }
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid ${(props) => props.theme.text};
+    opacity: 0.2;
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    
+
+    .links {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    font-size: 1rem;
+  }
+`;
