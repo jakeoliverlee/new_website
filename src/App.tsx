@@ -5,6 +5,7 @@ import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldTe
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons';
 import Navbar from './components/navbar/Navbar';
+import Skills from "./components/SkillsCard/Skills";
 import Footer from './components/footer/Footer';
 import ProjectCard from './components/ProjectCard';
 import styled, { ThemeProvider } from 'styled-components';
@@ -86,10 +87,58 @@ export default function App() {
 
   const treeElements = [
     <Tree name="main" defaultOpen>
-      <Tree name="about">
-        <div>
-          A backend <BoldText>engineer</BoldText>
-        </div>
+       <Tree name="about">
+       <div style={{ marginLeft: '20px' }}>
+        A backend <BoldText>engineer</BoldText>
+      </div>
+    </Tree>
+    <Tree name="skills">
+    <Skills
+        frontend={[
+          { name: 'React', logo: 'assets/svgs/react-javascript-js-framework-facebook-svgrepo-com.svg' },
+          // ...other frontend skills
+        ]}
+        backend={[
+          { name: 'Node.js', logo: 'assets/svgs/node-js-svgrepo-com.svg' },
+          { name: 'Python', logo: 'assets/svgs/icons8-python.svg' },
+          // ...other backend skills
+        ]}
+        cicd={[
+          { name: 'Node.js', logo: 'assets/svgs/node-js-svgrepo-com.svg' },
+          { name: 'Python', logo: 'assets/svgs/icons8-python.svg' },
+          // ...other backend skills
+        ]}
+        cloud={[
+          { 
+            name: 'AWS', 
+            logo: 'assets/svgs/aws-icon-services.svg', 
+            services: [
+              { name: 'EC2'},
+              { name: 'AutoScaling'},
+              { name: 'ELB'},
+              { name: 'VPC'},
+              { name: 'S3'},
+              { name: 'IAM'},
+              { name: 'KMS'},
+              { name: 'Cloudformation/CDK (IaC)'},
+              { name: 'CloudWatch'},
+              { name: 'Route53'},
+
+              // add other services here
+            ], 
+          },
+          { 
+            name: 'GCP', 
+            logo: 'assets/svgs/gcp.svg',
+            services: [
+              { name: 'Compute Engine' },
+              { name: 'Cloud Storage' },
+              // add other services here
+            ],
+          },
+          // ...other cloud skills
+        ]}
+      />
       </Tree>
       <Tree name="projects 📝">
         <Tree name="github graphs 📈">
@@ -111,7 +160,7 @@ export default function App() {
           <ProjectCard
             title="Streamline"
             description="Amazon-internal web application for optimizing ticket-data analysis for Data Centre Technicians.
-             Entirely written in Python, with the exception of the IaC component being written in Typescript"
+             "
             techStack={[
               { name: "Python", logo: "assets/svgs/icons8-python.svg" },
               { name: "Typescript", logo: "assets/svgs/typescript-svgrepo-com.svg" },

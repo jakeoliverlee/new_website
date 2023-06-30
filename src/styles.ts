@@ -14,23 +14,30 @@ export const lightTheme = {
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  margin: 0;
-  margin-left: 1rem;
-  padding: 0;
+  padding-left: 450px; // adjust this value as needed
   overflow: hidden;
   font-family: ui-monospace, monospace;
   font-size: 23px;
-  line-height: 21px;
+  line-height: 24px;
   user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
   
   @media (max-width: 768px) {
-    font-size: 16px;
+    padding-left: 0px;
+  }
+  
+  @media (max-width: 414px) {
+    font-size: 18px;
     line-height: 18px;
+    padding-left: 25px;
+    margin-left: 1rem
   }
 `;
+
+
+
 
 export const BoldText = styled.span`
   font-weight: bold;
@@ -38,7 +45,7 @@ export const BoldText = styled.span`
 
 export const Frame = styled.div`
   position: relative;
-  padding: 2px 0 0;
+  padding: 4px 0 0;
   text-overflow: ellipsis;
   overflow-x: hidden;
   vertical-align: middle;
@@ -53,14 +60,12 @@ export const Title = styled.span`
 
 export const Content = styled(animated.div)`
   will-change: transform, opacity, height;
-  margin-left: 14px;
-  margin: 1rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 14px;
   padding: 0 0 0 14px;
   border-left: 1px dashed rgba(255, 255, 255, 0.4);
   overflow: hidden;
 `;
+
 
 export const toggle = {
   width: '1em',
@@ -93,7 +98,7 @@ export const TechStack = styled.div`
 export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 75%;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
@@ -126,7 +131,7 @@ export const ProjectCard = styled.div`
   }
 
   @media (max-width: 600px) {
-    width: 100%; // make it full width on smaller screens
+    width: 75%; // make it full width on smaller screens
     padding: 0.5rem; // reduce padding on smaller screens
     margin: 1rem;
 
@@ -170,6 +175,10 @@ export const ContactCard = styled.div`
       color: ${(props) => props.theme.text};
       text-decoration: underline;
       margin-right: 1rem;
+
+      &:hover {
+        color: #61dafb;
+      }
     }
   }
 
@@ -193,4 +202,6 @@ export const ContactCard = styled.div`
     width: 90%;
     font-size: 1rem;
   }
+
+  
 `;
