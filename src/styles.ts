@@ -216,3 +216,4 @@ export const ContactCard = styled.div`
 
   
 `;
+
