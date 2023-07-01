@@ -14,7 +14,7 @@ export const lightTheme = {
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  padding-left: 450px; // adjust this value as needed
+  padding-left: 450px; 
   overflow: hidden;
   font-family: ui-monospace, monospace;
   font-size: 23px;
@@ -24,15 +24,26 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   
+  @media (max-width: 1024px) {
+    padding-left: 100px;
+  }
+
   @media (max-width: 768px) {
-    padding-left: 0px;
+    padding-left: 50px;
   }
   
   @media (max-width: 414px) {
+    padding-left: 10px;
     font-size: 18px;
     line-height: 18px;
-    padding-left: 25px;
-    margin-left: 1rem
+    margin-left: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 5px;
+    margin-left: 0.3rem;
   }
 `;
 

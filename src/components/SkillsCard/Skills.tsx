@@ -1,6 +1,5 @@
-// Skills.tsx
 import React from 'react';
-import { SkillsContainer, SkillsCategory, SkillsHeader, SkillSet, Skill, SkillLogo, SkillName, ProviderHeader } from './stylesSkills';
+import { SkillsContainer, SkillsCategory, SkillSet, Skill, SkillLogo, SkillName, ProviderHeader } from './stylesSkills';
 
 interface Service {
   name: string;
@@ -9,7 +8,7 @@ interface Service {
 interface SkillItem {
   name: string;
   logo: string;
-  services?: Service[]; // optional services for each SkillItem
+  services?: Service[];
 }
 
 interface Provider {
@@ -18,17 +17,25 @@ interface Provider {
   services: Service[];
 }
 
-interface SkillsProps {
-  frontend: SkillItem[];
-  backend: SkillItem[];
-  cloud: Provider[];
-  cicd: SkillItem[];
+interface FrontendProps {
+  frontend?: SkillItem[];
 }
 
-const Skills: React.FC<SkillsProps> = ({ frontend, backend, cloud, cicd }) => (
+interface BackendProps {
+  backend?: SkillItem[];
+}
+
+interface CicdProps {
+  cicd?: SkillItem[];
+}
+
+interface CloudProps {
+  cloud?: Provider[];
+}
+
+const FrontendSkills: React.FC<FrontendProps> = ({ frontend = [] }) => (
   <SkillsContainer>
     <SkillsCategory>
-      <SkillsHeader>frontend</SkillsHeader>
       <SkillSet>
         {frontend.map((skill) => (
           <Skill key={skill.name}>
@@ -38,8 +45,12 @@ const Skills: React.FC<SkillsProps> = ({ frontend, backend, cloud, cicd }) => (
         ))}
       </SkillSet>
     </SkillsCategory>
+  </SkillsContainer>
+);
+
+const BackendSkills: React.FC<BackendProps> = ({ backend = [] }) => (
+  <SkillsContainer>
     <SkillsCategory>
-      <SkillsHeader>backend</SkillsHeader>
       <SkillSet>
         {backend.map((skill) => (
           <Skill key={skill.name}>
@@ -49,10 +60,14 @@ const Skills: React.FC<SkillsProps> = ({ frontend, backend, cloud, cicd }) => (
         ))}
       </SkillSet>
     </SkillsCategory>
+  </SkillsContainer>
+);
+
+const CicdSkills: React.FC<CicdProps> = ({ cicd = [] }) => (
+  <SkillsContainer>
     <SkillsCategory>
-      <SkillsHeader>cicd</SkillsHeader>
       <SkillSet>
-        {backend.map((skill) => (
+        {cicd.map((skill) => (
           <Skill key={skill.name}>
             <SkillLogo src={skill.logo} alt={skill.name} />
             <SkillName>{skill.name}</SkillName>
@@ -60,15 +75,19 @@ const Skills: React.FC<SkillsProps> = ({ frontend, backend, cloud, cicd }) => (
         ))}
       </SkillSet>
     </SkillsCategory>
+  </SkillsContainer>
+);
+
+const CloudSkills: React.FC<CloudProps> = ({ cloud = [] }) => (
+  <SkillsContainer>
     <SkillsCategory>
-      <SkillsHeader>cloud</SkillsHeader>
       {cloud.map((provider) => (
         <div key={provider.name}>
           <ProviderHeader logo={provider.logo}>{provider.name}</ProviderHeader>
           <SkillSet>
             {provider.services.map((service) => (
               <Skill key={service.name}>
-                <SkillName>{service.name}</SkillName> {/* Removed SkillLogo */}
+                <SkillName>{service.name}</SkillName>
               </Skill>
             ))}
           </SkillSet>
@@ -78,4 +97,4 @@ const Skills: React.FC<SkillsProps> = ({ frontend, backend, cloud, cicd }) => (
   </SkillsContainer>
 );
 
-export default Skills;
+export { FrontendSkills, BackendSkills, CicdSkills, CloudSkills };
