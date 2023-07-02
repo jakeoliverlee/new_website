@@ -38,6 +38,7 @@ export const NavbarTitle = styled.h1`
   font-size: 1.5em;
   color: inherit;
   margin: 0;
+  text-decoration: underline;
   vertical-align: middle;
 `;
 

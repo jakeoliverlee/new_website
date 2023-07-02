@@ -33,8 +33,16 @@ const Tree = React.memo<React.HTMLAttributes<HTMLDivElement> & { defaultOpen?: b
 
     const Icon = Icons[`${children ? (isOpen ? 'Minus' : 'Plus') : 'Close'}SquareO`];
 
+    const treeFrameRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      if (isOpen && treeFrameRef.current) {
+        treeFrameRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, [isOpen]);
+
     return (
-      <Frame>
+      <Frame ref={treeFrameRef}>
         <Icon style={{ ...toggle, opacity: children ? 1 : 0.3 }} onClick={() => setOpen(!isOpen)} />
         <Title color={color} style={style}>{name}</Title>
         <Content style={{ opacity, height: isOpen && previous === isOpen ? 'auto' : height }}>
@@ -44,6 +52,7 @@ const Tree = React.memo<React.HTMLAttributes<HTMLDivElement> & { defaultOpen?: b
     );
   }
 );
+
 
 const AppContainer = styled.div`
   display: flex;
@@ -190,7 +199,7 @@ export default function App() {
         <Tree name="personal site 💼">
         <ProjectCard
             title="Personal Site"
-            description="The page you are viewing right now!"
+            description="The page you are viewing right now! My page is a fully responsive web application, built with minimalism in mind. "
             techStack={[
               { name: "Typescript", logo: "assets/svgs/typescript-svgrepo-com.svg" },
               { name: "React", logo: "assets/svgs/react-javascript-js-framework-facebook-svgrepo-com.svg" },
