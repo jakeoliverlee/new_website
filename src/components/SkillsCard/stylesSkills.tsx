@@ -27,7 +27,7 @@ export const ProviderHeader = styled.h3<{ logo: string }>`
   gap: 0.5rem;
   color: ${(props) => props.theme.text};
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;    
 
   &::before {
     content: '';
@@ -46,8 +46,8 @@ export const SkillSet = styled.div`
   gap: 0.75rem;
 
   @media screen and (max-width: 600px) {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    overflow-x: visible;
   }
 `;
 

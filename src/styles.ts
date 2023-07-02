@@ -12,9 +12,10 @@ export const lightTheme = {
 }
 
 export const Container = styled.div`
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding-left: 450px; 
+  padding-left: 10%; 
   overflow: hidden;
   font-family: ui-monospace, monospace;
   font-size: 23px;
@@ -25,15 +26,15 @@ export const Container = styled.div`
   justify-content: center;
   
   @media (max-width: 1024px) {
-    padding-left: 100px;
+    padding-left: 8%;
   }
 
   @media (max-width: 768px) {
-    padding-left: 50px;
+    padding-left: 6%;
   }
-  
+
   @media (max-width: 414px) {
-    padding-left: 10px;
+    padding-left: 4%;
     font-size: 18px;
     line-height: 18px;
     margin-left: 0.5rem;
@@ -42,7 +43,7 @@ export const Container = styled.div`
   @media (max-width: 320px) {
     font-size: 16px;
     line-height: 16px;
-    padding-left: 5px;
+    padding-left: 2%;
     margin-left: 0.3rem;
   }
 `;
@@ -142,9 +143,9 @@ export const ProjectCard = styled.div`
   }
 
   @media (max-width: 600px) {
-    width: 75%; // make it full width on smaller screens
+    width: 100%; // make it full width on smaller screens
     padding: 0.5rem; // reduce padding on smaller screens
-    margin: 1rem;
+    margin: 0.5rem 0; // adjust margins to account for smaller width
 
     .description {
       font-size: 1rem; // reduce font size on smaller screens
@@ -202,6 +203,9 @@ export const ContactCard = styled.div`
 
   @media (max-width: 600px) {
     flex-wrap: wrap;
+    width: 100%; // make it full width on smaller screens
+    padding: 0.5rem; // reduce padding on smaller screens
+    margin: 0.5rem 0; // adjust margins to account for smaller width
     
 
     .links {
