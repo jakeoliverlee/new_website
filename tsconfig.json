@@ -16,6 +16,8 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "ignoreDeprecations": "5.0",
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }

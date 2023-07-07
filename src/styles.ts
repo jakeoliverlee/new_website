@@ -37,14 +37,12 @@ export const Container = styled.div`
     padding-left: 4%;
     font-size: 18px;
     line-height: 18px;
-    margin-left: 0.5rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 16px;
     padding-left: 2%;
-    margin-left: 0.3rem;
   }
 `;
 
@@ -105,6 +103,50 @@ export const TechStack = styled.div`
     }
   }
 `;
+
+
+
+export const CDKCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: ${(props) => props.theme.text};
+  }
+
+  .links {
+    display: flex;
+    justify-content: start;
+
+    a {
+      color: ${(props) => props.theme.text};
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .links {
+      flex-wrap: wrap;
+
+      a {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+`;
+
 
 
 export const ProjectCard = styled.div`

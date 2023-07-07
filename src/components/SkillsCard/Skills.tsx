@@ -7,7 +7,7 @@ interface Service {
 
 interface SkillItem {
   name: string;
-  logo: string;
+  logo?: string;
   services?: Service[];
 }
 
@@ -31,6 +31,10 @@ interface CicdProps {
 
 interface CloudProps {
   cloud?: Provider[];
+}
+
+interface NetworkProps {
+  network?: SkillItem[];
 }
 
 const FrontendSkills: React.FC<FrontendProps> = ({ frontend = [] }) => (
@@ -97,4 +101,18 @@ const CloudSkills: React.FC<CloudProps> = ({ cloud = [] }) => (
   </SkillsContainer>
 );
 
-export { FrontendSkills, BackendSkills, CicdSkills, CloudSkills };
+const NetworkSkills: React.FC<NetworkProps> = ({ network = [] }) => (
+  <SkillsContainer>
+    <SkillsCategory>
+      <SkillSet>
+        {network.map((skill) => (
+          <Skill key={skill.name}>
+            <SkillName>{skill.name}</SkillName>
+          </Skill>
+        ))}
+      </SkillSet>
+    </SkillsCategory>
+  </SkillsContainer>
+);
+
+export { FrontendSkills, BackendSkills, CicdSkills, CloudSkills, NetworkSkills };

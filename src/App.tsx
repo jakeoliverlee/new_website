@@ -1,13 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSpring, a } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, BoldText, ContactCard } from './styles';
+import { Container, Title, Frame, Content, toggle, lightTheme, darkTheme, ContactCard, CDKCard, } from './styles';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import * as Icons from './icons';
 import Navbar from './components/navbar/Navbar';
-import { FrontendSkills, BackendSkills, CicdSkills, CloudSkills } from "./components/SkillsCard/Skills";
+import { FrontendSkills, BackendSkills, CicdSkills, CloudSkills, NetworkSkills } from "./components/SkillsCard/Skills";
 import Footer from './components/footer/Footer';
 import ProjectCard from './components/ProjectCard';
+import AboutMe from './components/about/AboutMe';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './GlobalStyles';
 
@@ -34,6 +35,41 @@ const Tree = React.memo<React.HTMLAttributes<HTMLDivElement> & { defaultOpen?: b
     const Icon = Icons[`${children ? (isOpen ? 'Minus' : 'Plus') : 'Close'}SquareO`];
 
     const treeFrameRef = useRef<HTMLDivElement>(null);
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+    
+      window.addEventListener('resize', handleResize);
+      return () =>   {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+    
+    
+    useEffect(() => {
+      let timer: NodeJS.Timeout;
+      let isMounted = true;
+      if (name === "about" && windowWidth > 768) {
+        // Open the component after a delay
+        timer = setTimeout(() => {
+          if (isMounted) {
+            setOpen(true);
+          }
+        }, 200); 
+      }
+    
+      // Clean up the timer when the component unmounts
+      return () => {
+        isMounted = false;
+        timer && clearTimeout(timer);
+      };
+    }, []); // The empty dependency array ensures this effect only runs once, when the component first mounts
+    
+
 
     useEffect(() => {
       if (isOpen && treeFrameRef.current) {
@@ -95,18 +131,26 @@ export default function App() {
     closed: { opacity: 0, y: -50 },
   };
 
+  
+
   const treeElements = [
-    <Tree name="main" defaultOpen>
+    <Tree 
+      name="main" 
+      defaultOpen 
+      style={{ position: 'relative', zIndex: 2 }}
+    >
       <Tree name="about">
-        <div style={{ marginLeft: '20px' }}>
-          A backend <BoldText>engineer</BoldText>
-        </div>
+      <AboutMe />
       </Tree>
       <Tree name="skills">
         <Tree name="frontend">
           <FrontendSkills
             frontend={[
               { name: 'React', logo: 'assets/svgs/react-javascript-js-framework-facebook-svgrepo-com.svg' },
+              { name: 'Tailwind', logo: 'assets/svgs/tailwind-css-icon.svg' },
+              { name: 'Styled Components', logo: 'assets/styled-components.png' },
+
+
               // ...other frontend skills
             ]}
           />
@@ -123,8 +167,9 @@ export default function App() {
         <Tree name="cicd">
           <CicdSkills
             cicd={[
-              { name: 'Node.js', logo: 'assets/svgs/node-js-svgrepo-com.svg' },
-              { name: 'Python', logo: 'assets/svgs/icons8-python.svg' },
+              { name: 'GitHub Actions', logo: 'assets/svgs/github-actions.svg' },
+              { name: 'AWS CodePipeline', logo: 'assets/svgs/CodePipeline.svg' },
+              { name: 'Jenkins', logo: 'assets/svgs/jenkins-icon.svg' },
               // ...other cicd skills
             ]}
           />
@@ -162,6 +207,15 @@ export default function App() {
             ]}
           />
         </Tree>
+        <Tree name="networking">
+          <NetworkSkills
+            network={[
+              { name: 'BGP,'},
+              { name: 'OSPF'},
+              // ...other cicd skills
+            ]}
+          />
+        </Tree>
       </Tree>
 
       <Tree name="projects 📝">
@@ -195,6 +249,12 @@ export default function App() {
             liveLink="#"
             sourceLink="#"
           />
+          <Tree name="cdk">
+          <CDKCard>
+            <div className="description">This is the CDK description</div>
+            <div className="links"><a href="#">Link</a></div>
+          </CDKCard>
+          </Tree>
         </Tree>
         <Tree name="personal site 💼">
         <ProjectCard
@@ -234,7 +294,7 @@ export default function App() {
       </ContactCard>
       </Tree>
       <Tree name={<span>🐬 something something</span>} />
-    </Tree>,
+    </Tree>
   ];
   
 
