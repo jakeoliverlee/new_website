@@ -16,8 +16,8 @@ const AboutMe = () => {
         </Text>
 
         <Text>
-          Recreationally, I immerse myself in everything development: my main languages being <BoldText>Python, Javascript, Typescript and little
-          bit of Go.</BoldText> I have built a variety of web applications, API's, and desktop applications which I detail below in the "projects" section.  
+          Recreationally, I immerse myself in everything development: my main languages being <BoldText>Python, Javascript, Typescript</BoldText> and little
+          bit of <BoldText>Go.</BoldText> I have built a variety of web applications, API's, and desktop applications which I detail below in the "projects" section.  
         </Text>
 
         <Text>

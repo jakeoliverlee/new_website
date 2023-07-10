@@ -55,6 +55,7 @@ export const Skill = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
   gap: 0.5rem;
   padding: 0.75rem;
   background-color: ${(props) => props.theme.cardBackground};

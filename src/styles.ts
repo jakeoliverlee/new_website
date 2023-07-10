@@ -152,7 +152,7 @@ export const CDKCard = styled.div`
 export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 50%;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);

@@ -26,7 +26,7 @@ export const Heading = styled.h1`
 `;
 
 export const Text = styled.p`
-  font-size: 0.7em;
+  font-size: 0.9em;
   line-height: 1.6em;
   color: ${(props) => props.theme.text};
   text-align: start;
