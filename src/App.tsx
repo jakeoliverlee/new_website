@@ -232,6 +232,7 @@ export default function App() {
             ]}
             liveLink="#"
             sourceLink="#"
+            live
           />
         </Tree>
         <Tree name="streamline 🦈">
