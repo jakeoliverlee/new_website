@@ -21,7 +21,7 @@ export default function Live() {
 
     return (
         <div className="api-response-section">
-            <Button variant="outlined" onClick={handleButtonClick} style={{color: 'white'}}>Try it out!</Button>
+            <Button variant="outlined" onClick={handleButtonClick} style={{color: 'white'}}>Click here for a live demo!</Button>
             {loading ? <CircularProgress /> : apiResponse && <img src={apiResponse} alt="API response" style={{borderRadius: '10px', margin: '10px', maxWidth: '100%', height: 'auto'}} />}
         </div>
     );  
