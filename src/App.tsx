@@ -233,6 +233,7 @@ export default function App() {
             liveLink="#"
             sourceLink="#"
             live
+            version="1.1.4"
           />
         </Tree>
         <Tree name="streamline 🦈">
@@ -249,6 +250,7 @@ export default function App() {
             ]}
             liveLink="#"
             sourceLink="#"
+            version="1.0.1"
           />
           <Tree name="cdk">
           <CDKCard>
@@ -269,6 +271,7 @@ export default function App() {
               { name: "Github Actions", logo: "assets/svgs/github-actions.svg" },
             ]}
             sourceLink="#"
+            version="1.1.1"
           />
         </Tree>
         <Tree name="pass save 🔐">
@@ -279,6 +282,7 @@ export default function App() {
               { name: "Python", logo: "assets/svgs/icons8-python.svg" },
             ]}
             sourceLink="#"
+            version="1.1.1"
           />
         </Tree>
       </Tree>

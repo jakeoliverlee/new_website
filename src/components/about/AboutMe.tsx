@@ -1,7 +1,7 @@
 // AboutMe.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BoldText } from '../../styles';
+// import { BoldText } from '../../styles';
 import { AboutMeContainer, Heading, Text } from './AboutMestyles';
 
 const AboutMe = () => {
@@ -14,12 +14,6 @@ const AboutMe = () => {
           Professionally, I spend my time looking after Data Centre Infrastructure for Amazon, and have been enjoying every
           part of it since 2020! 
         </Text>
-
-        <Text>
-          Recreationally, I immerse myself in everything development: my main languages being <BoldText>Python, Javascript, Typescript</BoldText> and little
-          bit of <BoldText>Go.</BoldText> I have built a variety of web applications, API's, and desktop applications which I detail below in the "projects" section.  
-        </Text>
-
         <Text>
          Feel free to reach out to me, I am most active on email. 
         </Text>

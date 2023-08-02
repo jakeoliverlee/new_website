@@ -152,9 +152,9 @@ export const CDKCard = styled.div`
 export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   width: 50%;
   padding: 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 
   .description {
@@ -168,7 +168,6 @@ export const ProjectCard = styled.div`
   .links {
     display: flex;
     justify-content: start;
-    margin-bottom: 1rem;
 
     a {
       color: ${(props) => props.theme.text};

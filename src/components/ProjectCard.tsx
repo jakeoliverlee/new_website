@@ -2,6 +2,8 @@ import React from 'react';
 import { TechStack, ProjectCard as StyledProjectCard } from '../styles';
 import { Button } from '@mui/material';
 import Live from './live/Live';
+import Version from './version/Version';
+
 
 interface ProjectProps {
   title: string;
@@ -10,12 +12,13 @@ interface ProjectProps {
   liveLink?: string;
   sourceLink: string;
   live?: boolean;
+  version: string;
 }
 
-const ProjectCard: React.FC<ProjectProps> = ({ title, description, techStack, liveLink, sourceLink, live }) => {
+const ProjectCard: React.FC<ProjectProps> = ({ title, description, techStack, liveLink, sourceLink, live, version }) => {
   return (
     <StyledProjectCard>
-      <h3>{title}</h3>
+      <h3>{title} - <Version version={version} /></h3>
       <div className="description">
         {description}
       </div>
