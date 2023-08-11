@@ -12,8 +12,11 @@ const AboutMe = () => {
         <Text>
           Hey there! 
           Professionally, I spend my time looking after Data Centre Infrastructure for Amazon, and have been enjoying every
-          part of it since 2020! 
-        </Text>
+          part of it since 2020. 
+          </Text>
+          <Text>
+          I use my passion for development to solve real-world problems, I am particularly interested in backend technologies; my main languages being Python and Golang.
+          </Text>
         <Text>
          Feel free to reach out to me, I am most active on email. 
         </Text>

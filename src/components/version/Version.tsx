@@ -5,6 +5,8 @@ interface VersionProps {
     version: string;
 }
 
+
+
 const Version: React.FC<VersionProps> = ({ version }) => {
     return (
         <VersionContainer>

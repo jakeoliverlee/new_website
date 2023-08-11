@@ -12,6 +12,16 @@ import AboutMe from './components/about/AboutMe';
 import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './GlobalStyles';
 
+
+console.log(
+  `%c jakeoliverlee.com 🚀 %c\n%c GitHub: https://github.com/jakeoliverlee %c`,
+  'color:#fff; background:#18181b; font-size:1.5rem; padding:0.15rem 0.25rem; margin: 1rem auto; font-family: ui-monospace, monospace; border: 2px solid #fff; border-radius: 4px; font-weight: bold; text-shadow: 1px 1px 1px #aaa;',
+  '', // This resets the background styling
+  'color:#bbb; background:#18181b; font-size:1rem; padding:0.1rem 0.2rem; margin: 1rem auto; font-family: ui-monospace, monospace; text-shadow: 0.5px 0.5px 1px #888;',
+  ''  // This resets the background styling
+);
+
+
 function usePrevious<T>(value: T) {
   const ref = useRef<T>();
   useEffect(() => void (ref.current = value), [value]);
@@ -143,7 +153,6 @@ export default function App() {
       <AboutMe />
       </Tree>
       <Tree name="skills">
-        <Tree name="frontend">
           <FrontendSkills
             frontend={[
               { name: 'React', logo: 'assets/svgs/react-javascript-js-framework-facebook-svgrepo-com.svg' },
@@ -153,9 +162,7 @@ export default function App() {
 
               // ...other frontend skills
             ]}
-          />
-        </Tree>
-        <Tree name="backend">
+          />  
           <BackendSkills
             backend={[
               { name: 'Node.js', logo: 'assets/svgs/node-js-svgrepo-com.svg' },
@@ -163,8 +170,6 @@ export default function App() {
               // ...other backend skills
             ]}
           />
-        </Tree>
-        <Tree name="cicd">
           <CicdSkills
             cicd={[
               { name: 'GitHub Actions', logo: 'assets/svgs/github-actions.svg' },
@@ -173,8 +178,6 @@ export default function App() {
               // ...other cicd skills
             ]}
           />
-        </Tree>
-        <Tree name="cloud">
           <CloudSkills
             cloud={[
               { 
@@ -206,8 +209,6 @@ export default function App() {
               // ...other cloud skills
             ]}
           />
-        </Tree>
-        <Tree name="networking">
           <NetworkSkills
             network={[
               { name: 'BGP,'},
@@ -215,7 +216,6 @@ export default function App() {
               // ...other cicd skills
             ]}
           />
-        </Tree>
       </Tree>
 
       <Tree name="projects 📝">

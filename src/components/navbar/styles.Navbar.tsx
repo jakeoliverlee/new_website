@@ -42,8 +42,13 @@ export const NavbarTitle = styled.h1`
   vertical-align: middle;
 `;
 
-export const NavbarButton = styled.a`
+type NavbarButtonProps = {
+  show?: boolean;
+};
+
+export const NavbarButton = styled.a<NavbarButtonProps>`
   color: ${(props) => props.theme.text};
+  display: ${(props) => (props.show ? 'inline-block' : 'none')};
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 3px;

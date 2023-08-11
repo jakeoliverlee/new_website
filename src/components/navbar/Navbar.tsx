@@ -61,11 +61,14 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, theme }) => {
             <MoonIcon />
           </>
         )}
-        {!isPhone && (
-          <NavbarButton href="/resume.pdf" download onClick={() => {setShowConfetti(true); setOpacity(1)}}>
-            Download Resume
-          </NavbarButton>
-        )}
+        <NavbarButton 
+        href="/resume.pdf" 
+        show={!isPhone} 
+        download 
+        onClick={() => {setShowConfetti(true); setOpacity(1)}}
+      >
+        Download Resume
+      </NavbarButton>
         <NavbarItem href="https://github.com/jakeoliverlee" target="__blank">
           <FaGithub size={24} />
         </NavbarItem>

@@ -26,7 +26,7 @@ export const Heading = styled.h1`
 `;
 
 export const Text = styled.p`
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 1.6em;
   color: ${(props) => props.theme.text};
   text-align: start;
@@ -35,6 +35,6 @@ export const Text = styled.p`
 
   @media (max-width: 768px) {
     max-width: 100%; // On smaller screens, text takes full width
-    font-size: 1em;
+    font-size: .8em;
   }
 `;

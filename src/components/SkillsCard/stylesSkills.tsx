@@ -57,7 +57,7 @@ export const Skill = styled.div`
   align-items: center;
   margin-top: 10px;
   gap: 0.5rem;
-  padding: 0.75rem;
+  padding: 0.5rem;
   background-color: ${(props) => props.theme.cardBackground};
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

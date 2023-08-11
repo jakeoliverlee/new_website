@@ -39,6 +39,7 @@ interface NetworkProps {
 
 const FrontendSkills: React.FC<FrontendProps> = ({ frontend = [] }) => (
   <SkillsContainer>
+    Frontend: 
     <SkillsCategory>
       <SkillSet>
         {frontend.map((skill) => (
@@ -54,6 +55,7 @@ const FrontendSkills: React.FC<FrontendProps> = ({ frontend = [] }) => (
 
 const BackendSkills: React.FC<BackendProps> = ({ backend = [] }) => (
   <SkillsContainer>
+    Backend:
     <SkillsCategory>
       <SkillSet>
         {backend.map((skill) => (
@@ -69,6 +71,7 @@ const BackendSkills: React.FC<BackendProps> = ({ backend = [] }) => (
 
 const CicdSkills: React.FC<CicdProps> = ({ cicd = [] }) => (
   <SkillsContainer>
+    CI/CD:
     <SkillsCategory>
       <SkillSet>
         {cicd.map((skill) => (
@@ -84,6 +87,7 @@ const CicdSkills: React.FC<CicdProps> = ({ cicd = [] }) => (
 
 const CloudSkills: React.FC<CloudProps> = ({ cloud = [] }) => (
   <SkillsContainer>
+    Cloud: 
     <SkillsCategory>
       {cloud.map((provider) => (
         <div key={provider.name}>
@@ -96,13 +100,15 @@ const CloudSkills: React.FC<CloudProps> = ({ cloud = [] }) => (
             ))}
           </SkillSet>
         </div>
-      ))}
+      ))} 
     </SkillsCategory>
   </SkillsContainer>
 );
 
+
 const NetworkSkills: React.FC<NetworkProps> = ({ network = [] }) => (
   <SkillsContainer>
+    Networking: 
     <SkillsCategory>
       <SkillSet>
         {network.map((skill) => (
