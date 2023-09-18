@@ -159,15 +159,12 @@ export default function App() {
               { name: 'Tailwind', logo: 'assets/svgs/tailwind-css-icon.svg' },
               { name: 'Styled Components', logo: 'assets/styled-components.png' },
 
-
-              // ...other frontend skills
             ]}
           />  
           <BackendSkills
             backend={[
               { name: 'Node.js', logo: 'assets/svgs/node-js-svgrepo-com.svg' },
               { name: 'Python', logo: 'assets/svgs/icons8-python.svg' },
-              // ...other backend skills
             ]}
           />
           <CicdSkills
@@ -175,7 +172,6 @@ export default function App() {
               { name: 'GitHub Actions', logo: 'assets/svgs/github-actions.svg' },
               { name: 'AWS CodePipeline', logo: 'assets/svgs/CodePipeline.svg' },
               { name: 'Jenkins', logo: 'assets/svgs/jenkins-icon.svg' },
-              // ...other cicd skills
             ]}
           />
           <CloudSkills
@@ -194,7 +190,6 @@ export default function App() {
                   { name: 'Cloudformation/CDK (IaC)'},
                   { name: 'CloudWatch'},
                   { name: 'Route53'},
-                  // add other services here
                 ], 
               },
               { 
@@ -203,17 +198,14 @@ export default function App() {
                 services: [
                   { name: 'Compute Engine' },
                   { name: 'Cloud Storage' },
-                  // add other services here
                 ],
               },
-              // ...other cloud skills
             ]}
           />
           <NetworkSkills
             network={[
               { name: 'BGP,'},
               { name: 'OSPF'},
-              // ...other cicd skills
             ]}
           />
       </Tree>
