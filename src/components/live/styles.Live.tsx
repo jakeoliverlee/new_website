@@ -15,3 +15,5 @@ export const ThemedText = styled.span`
   color: ${(props) => props.theme.textColor};
   transition: color 0.3s ease;
 `;
+
+
